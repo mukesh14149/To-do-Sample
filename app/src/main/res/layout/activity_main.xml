@@ -7,10 +7,10 @@
 
 
     <android.support.v7.widget.Toolbar
+        style="@style/Toolbar"
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/Toolbar">
+        android:layout_height="wrap_content">
         <ImageButton
             android:id="@+id/image_toolbar"
             android:layout_width="wrap_content"
