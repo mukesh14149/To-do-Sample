@@ -14,7 +14,44 @@
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Toolbar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="listview_item" parent="Theme.AppCompat.Light.NoActionBar">
+    </style>
+
+    <style name="title_item" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:background">@color/colorAccent</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:textSize">25dp</item>
+    </style>
+
+    <style name="description_item" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textStyle">italic</item>
+        <item name="android:textSize">25dp</item>
+    </style>
+
+    <style name="title" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textSize">50sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">#C0C0C0</item>
+    </style>
+
+    <style name="description" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textSize">50sp</item>
+        <item name="android:textStyle">italic</item>
+
+    </style>
+
+
+    <style name="dialog_title" parent="TextAppearance.AppCompat.Medium">
+    </style>
+
+    <style name="dialog_description" parent="TextAppearance.AppCompat.Medium">
+    </style>
+
 
 </resources>

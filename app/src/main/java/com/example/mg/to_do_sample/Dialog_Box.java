@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -38,11 +39,7 @@ public class Dialog_Box extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        //getting proper access to LayoutInflater is the trick. getLayoutInflater is a                   //Function
-
-
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
             LayoutInflater inflater = getActivity().getLayoutInflater();
 
@@ -51,21 +48,30 @@ public class Dialog_Box extends DialogFragment {
             builder.setTitle("Enter Details").setNeutralButton(
                     "", null);
 
+
             final EditText title=(EditText)view.findViewById(R.id.title);
             final EditText description=(EditText)view.findViewById(R.id.description);
 
+            title.setError(null);
+            description.setError(null);
             builder.setPositiveButton("Set", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     // Do something else
-                    Todo_item todo_item=new Todo_item();
-                    todo_item.setTitle(title.getText().toString());
-                    todo_item.setDescription(description.getText().toString());
+                    if(!title.getText().toString().isEmpty()&&!description.getText().toString().isEmpty()) {
 
-                    Save_Data save_data=new Save_Data(getActivity(),todo_item);
-                    save_data.execute();
-                    mListener.onComplete(title.getText().toString(),description.getText().toString());
-                    getDialog().dismiss();
 
+                        Todo_item todo_item = new Todo_item();
+                        todo_item.setTitle(title.getText().toString());
+                        todo_item.setDescription(description.getText().toString());
+
+                        Save_Data save_data = new Save_Data(getActivity(), todo_item);
+                        save_data.execute();
+                        mListener.onComplete(title.getText().toString(), description.getText().toString());
+                        getDialog().dismiss();
+
+                    }else{
+                        Toast.makeText(getActivity(), "Some Filled are empty", Toast.LENGTH_SHORT).show();
+                    }
                 }
             });
 
@@ -75,8 +81,6 @@ public class Dialog_Box extends DialogFragment {
                     getDialog().dismiss();
                 }
             });
-
-
 
 
         return builder.create();

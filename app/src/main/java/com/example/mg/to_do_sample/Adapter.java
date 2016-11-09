@@ -1,15 +1,12 @@
 package com.example.mg.to_do_sample;
 
 
-
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -34,10 +31,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
-        // each data item is just a string in this case
 
 
         TextView title;
+        TextView description;
         Context context;
 
         public ViewHolder(View item, Context context) {
@@ -45,11 +42,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             super(item);
             this.context=context;
             title=(TextView) item.findViewById(R.id.Title_view);
+            description=(TextView)item.findViewById(R.id.Description_view);
 
         }
-
-
-
 
     }
 
@@ -73,6 +68,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         final Todo_item todo_item = todo_item_list.get(position);
 
         holder.title.setText(todo_item.getTitle());
+        holder.description.setText(todo_item.getDescription());
 
     }
 
